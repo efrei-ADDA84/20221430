@@ -10,8 +10,8 @@ Original file is located at
 import os
 import requests
 API_KEY = os.environ.get('API_KEY') #'79516e2aea37c0be1937220707cffd74'
-#LATITUDE = os.environ.get('LAT') #'31.2504'
-#LONGITUDE = os.environ.get('LONG') #'-99.2506'
+LATITUDE = os.environ.get('LAT') #'31.2504'
+LONGITUDE = os.environ.get('LONG') #'-99.2506'
 
 def get_weather(LATITUDE, LONGITUDE, API_KEY):
     
