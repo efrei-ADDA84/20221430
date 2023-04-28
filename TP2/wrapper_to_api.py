@@ -10,9 +10,9 @@ API_KEY = '79516e2aea37c0be1937220707cffd74'
 
 @app.route('/weather')
 def get_weather():
-    LATITUDE = request.args.get('lat')
-    LONGITUDE = request.args.get('lon')
-    url = f'https://api.openweathermap.org/data/2.5/weather?lat={LATITUDE}&lon={LONGITUDE}&appid={API_KEY}&units=metric'
+    lat = request.args.get('lat')
+    lon = request.args.get('lon')
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}&units=metric'
     return requests.get(url).json()
 
 if __name__ == '__main__':
