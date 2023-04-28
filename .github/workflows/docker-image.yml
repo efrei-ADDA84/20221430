@@ -26,3 +26,6 @@ jobs:
           context: ./TP2
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-weather-app-2:latest
+          
+          
+          
