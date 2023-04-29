@@ -13,7 +13,7 @@ def get_weather():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
     url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}&units=metric'
-    return requests.get(url).json()
+    return jsonify(requests.get(url).json())
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0')
