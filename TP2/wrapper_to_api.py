@@ -5,8 +5,8 @@ from flask import Flask, jsonify,request
 
 app = Flask(__name__)
 
-API_KEY = '79516e2aea37c0be1937220707cffd74'
-#os.environ.get('API_KEY')
+API_KEY = os.environ.get('API_KEY')
+
 
 @app.route('/weather')
 def get_weather():
