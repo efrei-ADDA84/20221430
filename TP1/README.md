@@ -34,7 +34,7 @@ print(get_weather(LATITUDE, LONGITUDE, API_KEY))
 
 1.	Les modules os et requests sont importés pour utiliser respectivement les variables d'environnement et effectuer des requêtes HTTP. 
 2.	Les variables d'environnement API_KEY, LATITUDE et LONGITUDE sont définies à l'aide de la méthode os.environ.get(). API_KEY est la clé d'API OpenWeatherMap, LATITUDE est la latitude du lieu recherché, et LONGITUDE est sa longitude. 
-3.	Une fonction get_weather est définie, prenant en paramètres la latitude, la longitude et la clé d'API. Cette fonction va utiliser ces informations pour effectuer une requête à l'API OpenWeatherMap, en utilisant la méthode requests.get(). La requête contient les informations nécessaires pour récupérer les données de météo pour le lieu spécifié, en utilisant l'URL de l'API. 
+3.	Une fonction get_weather est définie, prenant en paramètres la latitude, la longitude et la clé API_KEY. Cette fonction va utiliser ces informations pour effectuer une requête à l'API OpenWeatherMap, en utilisant la méthode requests.get(). La requête contient les informations nécessaires pour récupérer les données de météo pour le lieu spécifié, en utilisant l'URL de l'API. 
 4.	Si la réponse HTTP renvoyée par l'API a un code de statut 200 (OK), alors la réponse est analysée en utilisant la méthode response.json(), et les données de météo requises sont extraites de cette réponse JSON. Ces données incluent la température, la description de la météo, la température ressentie et la vitesse du vent. Ces données sont retournées sous forme de chaîne de caractères. 
 5.	Si la réponse HTTP a un code de statut différent de 200, la fonction get_weather retourne la chaîne de caractères "Error getting weather data". 
 6.	Enfin, la fonction get_weather est appelée avec les variables LATITUDE, LONGITUDE et API_KEY, et le résultat est affiché à l'aide de la fonction print(). 
@@ -57,7 +57,7 @@ docker tag my-weather-app sarankansivananthan/my-weather-app : permet de renomme
 
 docker push sarankansivananthan/my-weather-app
 
-Permet de pousser une image Docker vers un registre Docker. Elle envoie l'image Docker nommée sarankansivananthan/my-weather-app vers le registre Docker. Une fois que l'image est poussée vers le registre Docker, elle peut être récupérée et utilisée par d'autres utilisateurs ou systèmes. 
+Permet de pousser une image Docker vers un registre Docker. Elle envoie l'image Docker nommée 'sarankansivananthan/my-weather-app' vers le DockerHubr. Une fois que l'image est push vers le registre Docker, elle peut être récupérée et utilisée par d'autres utilisateurs.
 
 
 *	Appel du wrapper
