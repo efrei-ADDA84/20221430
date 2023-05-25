@@ -38,3 +38,4 @@ jobs:
             name: 20221430
             location: 'west europe'
             secure-environment-variables: API_KEY=${{ secrets.API_KEY }}
+            ports: 80
