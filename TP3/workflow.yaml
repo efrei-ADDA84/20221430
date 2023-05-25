@@ -30,7 +30,7 @@ jobs:
           uses: azure/aci-deploy@v1
           with:
             resource-group: ${{ secrets.RESOURCE_GROUP }}
-            dns-name-label: devops-20220090
+            dns-name-label: devops-20221430
             image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20221430:v1
             registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
             registry-username: ${{ secrets.REGISTRY_USERNAME }}
