@@ -12,7 +12,7 @@ API_KEY = os.environ.get('API_KEY')
 def get_weather():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
-    url = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}&units=metric'
+    url = f'https://api.openweathermap.org/data/2.5/?lat={lat}&lon={lon}&appid={API_KEY}&units=metric'
     return jsonify(requests.get(url).json())
 
 if __name__ == '__main__':
