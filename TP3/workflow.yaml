@@ -1,38 +1,40 @@
-name: CI/CD Pipeline
+name: Azure
 
 on:
   push:
-    branches:
-      - main
+    branches: [master]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Login to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Build and push Docker image
-      uses: azure/docker-login@v1
-      with:
-        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-      run: |
-        docker build . -t efreidevops.azurecr.io/20221430:v1
-        docker push efreidevops.azurecr.io/20221430:v1
-
-    - name: Deploy to Azure Container Instance
-      uses: azure/aci-deploy@v1
-      with:
-        resource-group: ${{ secrets.RESOURCE_GROUP }}
-        dns-name-label: devops-20221430
-        location: francecentral
-        image: efreidevops.azurecr.io/20221430:v1
-        name: 20221430
+        - name: Checkout repository
+          uses: actions/checkout@v2
+          
+        - name: Login to Azure
+          uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+        - name: Build and push Docker image
+          uses: azure/docker-login@v1
+          with:
+            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+            username: ${{ secrets.REGISTRY_USERNAME }}
+            password: ${{ secrets.REGISTRY_PASSWORD }}
+        - run: |
+            docker build . -t ${{ secrets.REGISTRY_LOGIN_SERVER }}/20221430:v1
+            docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/20221430:v1
+            
+        - name: Deploy to Azure Container Instance (ACI)
+          uses: azure/aci-deploy@v1
+          with:
+            resource-group: ${{ secrets.RESOURCE_GROUP }}
+            dns-name-label: devops-20220090
+            image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/20221430:v1
+            registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+            registry-username: ${{ secrets.REGISTRY_USERNAME }}
+            registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+            name: 20221430
+            location: 'west europe'
+            secure-environment-variables: API_KEY=${{ secrets.API_KEY }}
