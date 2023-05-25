@@ -25,7 +25,7 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
       run: |
-        docker build .-t efreidevops.azurecr.io/20221430:v1
+        docker build . -t efreidevops.azurecr.io/20221430:v1
         docker push efreidevops.azurecr.io/20221430:v1
 
     - name: Deploy to Azure Container Instance
@@ -34,5 +34,5 @@ jobs:
         resource-group: ${{ secrets.RESOURCE_GROUP }}
         dns-name-label: devops-20221430
         location: francecentral
-        image: efreidevops.azurecr.io/202212430:v1
+        image: efreidevops.azurecr.io/20221430:v1
         name: 20221430
