@@ -90,6 +90,11 @@ On peut verifier ces actions (build/push) sur Github (si un commit a été fait)
 ```
 curl "http://devops-20221430.westeurope.azurecontainer.io:80/weather?lat=5.902785&lon=102.754175"
 ```
+Réponse:
+```
+{"base":"stations","clouds":{"all":81},"cod":200,"coord":{"lat":5.9028,"lon":102.7542},"dt":1685222309,"id":1736405,"main":{"feels_like":25.95,"grnd_level":980,"humidity":76,"pressure":1007,"sea_level":1007,"temp":25.95,"temp_max":25.95,"temp_min":25.95},"name":"Jertih","sys":{"country":"MY","sunrise":1685228009,"sunset":1685272752},"timezone":28800,"visibility":10000,"weather":[{"description":"broken clouds","icon":"04n","id":803,"main":"Clouds"}],"wind":{"deg":237,"gust":2.45,"speed":2.46}}
+
+```
 
 
 
